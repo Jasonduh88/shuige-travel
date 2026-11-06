@@ -100,6 +100,19 @@
     .details summary { cursor: pointer; font-weight: 800; color: var(--green); }
     .details p { margin-bottom: 0; }
 
+
+    /* 捷運健行：三張獨立卡片、統一封面與按鈕位置 */
+    #hiking .hiking-grid { align-items: stretch; }
+    #hiking .hiking-card { display: flex; flex-direction: column; gap: 12px; }
+    #hiking .hiking-card .tag { align-self: flex-start; margin-bottom: 0; }
+    #hiking .hiking-card img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
+    #hiking .hiking-card h3 { font-size: 1.1rem; line-height: 1.55; margin: 0; overflow-wrap: anywhere; }
+    #hiking .hiking-card p { margin: 0; }
+    #hiking .hiking-card .button { align-self: flex-start; margin-top: auto; }
+    @media (min-width: 781px) and (max-width: 1000px) {
+      #hiking .hiking-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     /* ===== 05. 頁尾與手機版 ===== */
     footer { background: var(--green-dark); color: #f3faf5; padding: 30px 0; text-align: center; }
     footer a { color: #f4e5b3; }
@@ -227,26 +240,28 @@
     <section id="hiking">
       <h2>🥾 捷運健行｜把城市走成風景</h2>
       <p class="section-lead">以下是路線靈感，不是即時交通班表；請依當天體力、天氣與官方交通資訊安排。</p>
-      <div class="grid">
-        <article class="card">
-  <span class="tag">文湖線｜大湖公園站</span>
-  <img src="images/travel/dagouxi-waterfall-cover.png"
-       alt="水哥趴趴走｜大溝溪親水步道與圓覺瀑布Q版攻略"
-       style="width:100%;height:auto;border-radius:12px;margin:12px 0;">
-  <h3>🌿 大溝溪親水步道 × 圓覺瀑布</h3>
-  <p>從捷運大湖公園站出發，沿著溪谷步道走進綠意森林，欣賞瀑布風景，安排一趟不用開車的自然小旅行。</p>
-  <a class="button" href="guides/dagouxi-waterfall.html">閱讀完整健行攻略 →</a>
-</article>
-        <article class="card"><span class="tag">松山新店線</span><h3>景美站 → 仙跡岩</h3>
-          <img src="images/travel/jingmei-xianjiyan-cover.png"
-           alt="景美仙跡岩捷運健行 Q 版攻略"
-           style="width:100%;height:auto;border-radius:12px;margin:12px 0;">
-          <p>適合安排半日城市小登山，部分路段有階梯，記得穿防滑鞋。</p><a class="button" href="guides/jingmei-xianjiyan.html">閱讀完整健行攻略 ↗</a>
-        <article class="card"><span class="tag">城市山林</span><h3>虎山溪步道・四獸山</h3>
-          <img src="images/travel/hushan-fourbeasts-cover.png"
-           alt="虎山溪步道與四獸山捷運健行 Q 版攻略"
-           style="width:100%;height:auto;border-radius:12px;margin:12px 0;">
-          <p>山林與溪流交錯，適合挑選適合自己的入口與路段，不必一次走完。</p><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%99%8E%E5%B1%B1%E6%BA%AA%E6%AD%A5%E9%81%93" target="_blank" rel="noopener noreferrer">查看地圖 ↗</a></article>
+      <div class="grid hiking-grid">
+        <article class="card hiking-card">
+          <span class="tag">文湖線｜大湖公園站</span>
+          <img src="images/travel/dagouxi-waterfall-cover.png" alt="水哥趴趴走｜大溝溪親水步道與圓覺瀑布 Q 版攻略" loading="lazy" width="1536" height="1024">
+          <h3>🌿 大溝溪親水步道 × 圓覺瀑布</h3>
+          <p>從捷運大湖公園站出發，沿著溪谷步道走進綠意森林，欣賞瀑布風景，安排一趟不用開車的自然小旅行。</p>
+          <a class="button" href="guides/dagouxi-waterfall.html">閱讀完整健行攻略 ↗</a>
+        </article>
+        <article class="card hiking-card">
+          <span class="tag">松山新店線｜景美站</span>
+          <img src="images/travel/jingmei-xianjiyan-cover.png" alt="景美仙跡岩捷運健行 Q 版攻略" loading="lazy" width="1536" height="1024">
+          <h3>🌿 景美站 → 仙跡岩</h3>
+          <p>適合安排半日城市小登山，部分路段有階梯，記得穿防滑鞋。</p>
+          <a class="button" href="guides/jingmei-xianjiyan.html">閱讀完整健行攻略 ↗</a>
+        </article>
+        <article class="card hiking-card">
+          <span class="tag">城市山林｜虎山溪步道</span>
+          <img src="images/travel/hushan-fourbeasts-cover.png" alt="虎山溪步道與四獸山捷運健行 Q 版攻略" loading="lazy" width="1536" height="1024">
+          <h3>🌳 虎山溪步道・四獸山</h3>
+          <p>山林與溪流交錯，適合挑選適合自己的入口與路段，不必一次走完。</p>
+          <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%99%8E%E5%B1%B1%E6%BA%AA%E6%AD%A5%E9%81%93" target="_blank" rel="noopener noreferrer">查看地圖 ↗</a>
+        </article>
       </div>
     </section>
 
