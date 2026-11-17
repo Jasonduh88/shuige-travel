@@ -13,7 +13,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="水哥趴趴走：不用開車也能輕旅行。分享雙北捷運健行、季節景點、旅遊攻略與素食順遊。">
   <meta name="theme-color" content="#245a4a">
-  <title>水哥趴趴走｜不用開車的雙北輕旅行</title>
+  <title>水哥趴趴走｜捷運輕旅行・森林健行・蔬食生活</title>
+  <link rel="canonical" href="https://jasonduh88.github.io/shuige-travel/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="水哥趴趴走｜搭上捷運，遇見城市裡的小美好">
+  <meta property="og:description" content="跟著水哥探索捷運輕旅行、森林健行、免費景點與蔬食順遊，收藏實用的雙北旅行攻略。">
+  <meta property="og:url" content="https://jasonduh88.github.io/shuige-travel/">
+  <meta property="og:image" content="https://jasonduh88.github.io/shuige-travel/shuige-travel-banner.png">
 
   <style>
     /* ===== 01. 全站色彩與基本設定 ===== */
@@ -150,6 +157,40 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
     }
+    /* ===== 首頁第二階段：分類導覽、主打攻略、行動裝置 ===== */
+    .hero-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:18px 0 4px; }
+    .hero-actions a { display:inline-block; padding:10px 18px; border-radius:999px; text-decoration:none; font-weight:800; background:var(--green); color:white; }
+    .hero-actions a.secondary { background:white; color:var(--green-dark); border:1px solid #c9ded1; }
+    .nav { position:sticky; top:0; z-index:20; box-shadow:0 3px 12px rgba(25,68,54,.04); }
+    .nav a[aria-current="page"] { background:var(--green-light); }
+    .quick-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+    .quick-card { background:white; border:1px solid var(--border); border-radius:20px; padding:19px 14px; text-align:center; text-decoration:none; box-shadow:var(--shadow); transition:transform .2s,box-shadow .2s; }
+    .quick-card:hover { transform:translateY(-3px); box-shadow:0 15px 34px rgba(25,68,54,.12); }
+    .quick-icon { font-size:2rem; display:block; }
+    .quick-card strong { display:block; color:var(--green-dark); margin-top:5px; }
+    .quick-card small { display:block; color:var(--muted); line-height:1.6; }
+    .spot-highlight { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:24px; align-items:center; }
+    .spot-highlight img { display:block; width:100%; border-radius:16px; }
+    .spot-highlight .tag { margin-bottom:12px; }
+    .spot-highlight p { margin:8px 0 18px; }
+    .card-feature { border:2px solid #c5ddc8; background:linear-gradient(145deg,#fff,#f7fcf6); }
+    .card-feature h3 { font-size:1.4rem; }
+    .featured-list { display:flex; flex-wrap:wrap; gap:9px; margin:12px 0 20px; }
+    .featured-list span { background:#eef5ed; color:var(--green-dark); border-radius:999px; padding:4px 11px; font-size:.85rem; }
+    .mini-cta { margin:22px 0 0; text-align:center; background:#eaf4e9; border-radius:18px; padding:20px; }
+    .mini-cta p { margin:0 0 10px; }
+    @media(max-width:780px) {
+      .quick-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .quick-card { padding:13px 9px; }
+      .quick-icon { font-size:1.6rem; }
+      .spot-highlight { grid-template-columns:1fr; gap:12px; }
+      .hero-actions { gap:8px; }
+      .hero-actions a { padding:8px 13px; font-size:.88rem; }
+      .nav-inner { justify-content:flex-start; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; }
+      .nav a { flex-shrink:0; }
+      section { scroll-margin-top:70px; }
+    }
+    @media(prefers-reduced-motion:reduce) { .quick-card { transition:none; } }
   </style>
 </head>
 
@@ -171,13 +212,19 @@
         fetchpriority="high"
       >
       <p class="hero-note">跟著水哥，搭上捷運、走進山林，把日常過成喜歡的風景。</p>
+      <div class="hero-actions" aria-label="快速閱讀攻略">
+        <a href="guides/taipei-free-5-spots.html">🌳 看台北五景點</a>
+        <a class="secondary" href="#hiking">🥾 找捷運健行</a>
+      </div>
     </div>
   </header>
 
   <!-- ===== 07. 網站導覽 ===== -->
   <nav class="nav" aria-label="主要導覽">
     <div class="container nav-inner">
+      <a href="#explore">探索分類</a>
       <a href="#featured">熱門攻略</a>
+      <a href="#free-spots">免費景點</a>
       <a href="#christmas">2026 耶誕城</a>
       <a href="#hiking">捷運健行</a>
       <a href="#vegetarian">素食順遊</a>
@@ -186,29 +233,38 @@
   </nav>
 
   <main id="main" class="container">
+    <!-- ===== 新增：四大主題分類 ===== -->
+    <section id="explore" aria-labelledby="explore-title">
+      <h2 id="explore-title">🧭 今天想去哪裡走走？</h2>
+      <p class="section-lead">不用翻找文章，依照喜歡的旅行方式，快速找到下一站。</p>
+      <div class="quick-grid">
+        <a class="quick-card" href="#free-spots"><span class="quick-icon" aria-hidden="true">🚇</span><strong>捷運輕旅行</strong><small>免費景點・城市散步</small></a>
+        <a class="quick-card" href="#hiking"><span class="quick-icon" aria-hidden="true">🌳</span><strong>森林健行</strong><small>溪谷步道・親子慢走</small></a>
+        <a class="quick-card" href="#vegetarian"><span class="quick-icon" aria-hidden="true">🥬</span><strong>蔬食生活</strong><small>旅途中的美味停靠站</small></a>
+        <a class="quick-card" href="#christmas"><span class="quick-icon" aria-hidden="true">✨</span><strong>季節限定</strong><small>節慶活動・特色景點</small></a>
+      </div>
+    </section>
+
     <!-- ===== 08. 熱門攻略 ===== -->
     <section id="featured">
-      <h2>✨ 精選輕旅行</h2>
-      <p class="section-lead">一區三四點，慢慢走、慢慢看；不用趕行程，也能收集好風景。</p>
-      <div class="grid">
-        <article class="card">
-          <span class="tag">季節活動</span>
-          <h3>🎄 2026 新北歡樂耶誕城</h3>
-          <p>今年不只板橋！七處響應燈區一次整理，選一區慢慢逛。</p>
-          <a href="guides/christmas-2026.html">查看七區整理 →</a>
-        </article>
-        <article class="card">
-          <span class="tag">捷運健行</span>
-          <h3>🌳 不用開車走進山林</h3>
-          <p>從大溝溪、仙跡岩到虎山溪步道，收藏雙北綠意散步路線。</p>
-          <a href="#hiking">查看步道清單 →</a>
-        </article>
-        <article class="card">
-          <span class="tag">素食順遊</span>
-          <h3>🥬 旅途中也要好好吃素</h3>
-          <p>把散步、景點與蔬食美味串成一趟舒服的小旅行。</p>
-          <a href="#vegetarian">看水哥素食分享 →</a>
-        </article>
+      <h2>✨ 精選輕旅行｜從這裡開始</h2>
+      <p class="section-lead">第一次來到水哥趴趴走？先收藏這幾篇實用的旅行攻略。</p>
+      <div class="card card-feature spot-highlight">
+        <a href="guides/taipei-free-5-spots.html" aria-label="閱讀台北五個免費療癒景點攻略">
+          <img src="images/travel/taipei-free-5-spots-cover.png" alt="台北五個捷運可達免費療癒景點 Q 版封面" loading="lazy">
+        </a>
+        <div>
+          <span class="tag">人氣主打｜捷運可達</span>
+          <h3>🚇 台北 5 個免費療癒景點</h3>
+          <p>不必開車，從湖畔散步、城市森林到木造圖書館，找個週末慢慢走，讓心情充充電。</p>
+          <div class="featured-list"><span>大湖公園</span><span>大安森林公園</span><span>北投圖書館</span><span>花博圓山</span><span>碧湖公園</span></div>
+          <a class="button" href="guides/taipei-free-5-spots.html">閱讀完整五景點攻略 →</a>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:18px">
+        <article class="card"><span class="tag">季節活動</span><h3>🎄 2026 新北歡樂耶誕城</h3><p>七處響應燈區與散步靈感，依自己的步調安排賞燈行程。</p><a href="guides/christmas-2026.html">閱讀耶誕城攻略 →</a></article>
+        <article class="card"><span class="tag">捷運健行</span><h3>🥾 不用開車走進山林</h3><p>大溝溪、仙跡岩與虎山溪，從捷運站出發，輕鬆親近綠意。</p><a href="#hiking">查看三條健行路線 →</a></article>
+        <article class="card"><span class="tag">素食順遊</span><h3>🥬 旅途中也要好好吃素</h3><p>旅行的幸福，除了沿途風景，也有一頓暖心的蔬食料理。</p><a href="#vegetarian">看看蔬食分享 →</a></article>
       </div>
     </section>
 
@@ -264,40 +320,16 @@
         </article>
       </div>
     </section>
-<!-- ===== 台北五個免費療癒景點 ===== -->
-<section id="free-spots">
-  <h2>🌳 台北免費景點｜捷運就能輕鬆到</h2>
-  <p class="section-lead">
-    不用開車、不必花門票！
-    精選台北五個捷運可達的療癒景點，
-    湖景、森林、花草與書香一次收藏。
-  </p>
-
-  <div class="grid">
-    <article class="card" style="grid-column:1/-1;">
-      <img
-         src="images/travel/taipei-free-5-spots-cover.png"
-         alt="水哥趴趴走｜台北五個捷運免費療癒景點"
-        loading="lazy"
-        style="width:100%;height:auto;display:block;border-radius:12px;margin:12px 0;"
-      >
-      <span class="tag">捷運輕旅行｜五個免費景點</span>
-
-      <h3>🚇 不用開車！台北 5 個免費療癒景點</h3>
-
-      <p>
-        大湖公園、大安森林公園、北投圖書館、
-        花博公園、碧湖公園。
-        週末搭捷運，就能享受城市裡的小旅行！
-      </p>
-
-      <a class="button"
-         href="guides/taipei-free-5-spots.html">
-        閱讀五大景點完整攻略 →
-      </a>
-    </article>
-  </div>
-</section>
+    <!-- ===== 台北五個免費療癒景點 ===== -->
+    <section id="free-spots">
+      <h2>🌳 台北免費景點｜捷運就能輕鬆到</h2>
+      <p class="section-lead">五個景點，五種療癒心情。可以挑一兩處慢慢逛，不用一天趕完。</p>
+      <div class="card">
+        <div class="featured-list"><span>🌉 大湖公園</span><span>🌲 大安森林公園</span><span>📚 北投圖書館</span><span>🌸 花博公園圓山園區</span><span>💚 碧湖公園</span></div>
+        <p>完整攻略整理捷運交通、景點特色與地圖；一般戶外入園免費，交通及特殊活動另計。</p>
+        <a class="button" href="guides/taipei-free-5-spots.html">閱讀五大景點完整攻略 →</a>
+      </div>
+    </section>
     <!-- ===== 11. 素食順遊 ===== -->
     <section id="vegetarian">
       <h2>🥬 水哥素食｜旅途中也要好好吃</h2>
@@ -313,6 +345,7 @@
     <section id="about">
       <h2>💚 關於水哥趴趴走</h2>
       <p>喜歡搭捷運、走步道、看展覽、尋找素食美食，也喜歡和家人慢慢旅行。這裡收藏的是生活裡值得停下腳步的風景，希望每一份攻略，都能讓你更輕鬆地出發。</p>
+      <p>希望這裡不只是旅遊清單，更是一個能讓你放慢腳步、找到出遊靈感的小角落。</p>
       <p><a class="button" href="https://linktr.ee/jasonduh88" target="_blank" rel="noopener noreferrer">探索水哥更多分享 ↗</a></p>
     </section>
   </main>
