@@ -191,7 +191,7 @@
       section { scroll-margin-top:70px; }
     }
     @media(prefers-reduced-motion:reduce) { .quick-card { transition:none; } }
-      /* V3.1 最新攻略：完整直式封面 */
+      /* V3.3 最新攻略：完整直式封面 */
     .latest-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .latest-card {display:flex;flex-direction:column;gap:12px}
     .latest-card img {display:block;width:100%;height:auto;max-height:560px;object-fit:contain;border-radius:12px;background:#f2f5ef}
@@ -248,6 +248,9 @@
       <h2 id="latest-title">🌿 最新旅遊與生活攻略</h2>
       <p class="section-lead">從民俗祈福、城市藝術到山林草原，收藏生活中的美好。</p>
       <div class="latest-grid">
+<article class="card latest-card"><span class="tag">季節活動・蔬食生活</span><a href="guides/guandu-art-festival-2026.html"><img src="images/travel/guandu-art-festival-2026-ep1.png" alt="🌷 2026 關渡人文藝術週" loading="lazy"></a><h3>🌷 2026 關渡人文藝術週</h3><p>12/19–12/20｜關渡靜思堂</p><p>免費入場，蔬食市集、親子藝文與交通攻略；餐飲另計。</p><a class="button" href="guides/guandu-art-festival-2026.html">閱讀完整攻略 →</a></article>
+<article class="card latest-card"><span class="tag">捷運輕旅行</span><a href="guides/taipei-free-5-spots-ep2.html"><img src="images/travel/taipei-free-5-spots-ep2.png" alt="🚇 台北5個捷運可達免費療癒景點 EP2" loading="lazy"></a><h3>🚇 台北5個捷運可達免費療癒景點 EP2</h3><p>麟光・古亭・台電大樓・國父紀念館</p><p>森林、文學老屋、客庄田園、河岸及藝術空間。</p><a class="button" href="guides/taipei-free-5-spots-ep2.html">閱讀完整攻略 →</a></article>
+
         <article class="card latest-card" id="folk"><span class="tag">民俗文化</span><a href="guides/tudigong-worship-guide.html"><img src="images/travel/tudigong-worship-guide.png" alt="水哥與土地公祈福供品懶人包" loading="lazy"></a><h3>🧧 初一十五拜土地公</h3><p>農曆初一、十五｜生活祈福</p><p>吉祥供品諧音、素食供品與參拜小提醒，收藏每月都用得上的祈福懶人包。</p><a class="button" href="guides/tudigong-worship-guide.html">閱讀完整攻略 →</a></article>
         <article class="card latest-card"><span class="tag">城市藝術</span><a href="guides/taipei-vangogh-art-guide.html"><img src="images/travel/taipei-vangogh-art-guide.png" alt="臺北梵谷藝術巡禮 Q版完整攻略圖" loading="lazy"></a><h3>🎨 臺北梵谷藝術巡禮</h3><p>20處文化據點・活動至2026/12/1</p><p>探索城市藝術與文化景點；活動期限及參觀資訊請見完整攻略。</p><a class="button" href="guides/taipei-vangogh-art-guide.html">閱讀完整攻略 →</a></article>
         <article class="card latest-card"><span class="tag">公車旅行</span><a href="guides/qingtiangang-bus-guide.html"><img src="images/travel/qingtiangang-bus-guide.png" alt="陽明山擎天崗公車小旅行 Q版完整攻略圖" loading="lazy"></a><h3>🚌 陽明山擎天崗公車小旅行</h3><p>捷運劍潭站｜小15公車</p><p>一段票走進草原，收錄公車班表、冷水坑與半日健行路線。</p><a class="button" href="guides/qingtiangang-bus-guide.html">閱讀完整攻略 →</a></article>
@@ -260,10 +263,10 @@
       <h2 id="explore-title">🧭 今天想去哪裡走走？</h2>
       <p class="section-lead">不用翻找文章，依照喜歡的旅行方式，快速找到下一站。</p>
       <div class="quick-grid">
-        <a class="quick-card" href="#free-spots"><span class="quick-icon" aria-hidden="true">🚇</span><strong>捷運輕旅行</strong><small>免費景點・城市散步</small></a>
+        <a class="quick-card" href="guides/?category=捷運輕旅行"><span class="quick-icon" aria-hidden="true">🚇</span><strong>捷運輕旅行</strong><small>免費景點・城市散步</small></a>
         <a class="quick-card" href="#hiking"><span class="quick-icon" aria-hidden="true">🌳</span><strong>森林健行</strong><small>溪谷步道・親子慢走</small></a>
-        <a class="quick-card" href="#vegetarian"><span class="quick-icon" aria-hidden="true">🥬</span><strong>蔬食生活</strong><small>旅途中的美味停靠站</small></a>
-        <a class="quick-card" href="#christmas"><span class="quick-icon" aria-hidden="true">✨</span><strong>季節限定</strong><small>節慶活動・特色景點</small></a>
+        <a class="quick-card" href="guides/?category=蔬食生活"><span class="quick-icon" aria-hidden="true">🥬</span><strong>蔬食生活</strong><small>旅途中的美味停靠站</small></a>
+        <a class="quick-card" href="guides/?category=季節活動"><span class="quick-icon" aria-hidden="true">✨</span><strong>季節限定</strong><small>節慶活動・特色景點</small></a>
         <a class="quick-card" href="guides/?category=城市藝術"><span class="quick-icon" aria-hidden="true">🎨</span><strong>城市藝術</strong><small>展覽・文化巡禮</small></a>
         <a class="quick-card" href="guides/?category=公車旅行"><span class="quick-icon" aria-hidden="true">🚌</span><strong>公車旅行</strong><small>公車直達・山林小旅行</small></a>
         <a class="quick-card" href="guides/?category=民俗文化"><span class="quick-icon" aria-hidden="true">🧧</span><strong>民俗文化</strong><small>土地公・生活祈福</small></a>
